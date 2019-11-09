@@ -5,8 +5,9 @@ public class Main {
 		System.out.println("Hello World!");
 		ClassPathXmlApplicationContext classPathXMLContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 	
-		TestBean testBean=classPathXMLContext.getBean("testBean", TestBean.class);
-		System.out.println(testBean.toString());
+		IMusic music=classPathXMLContext.getBean("music", IMusic.class);
+		MusicPlayer musicPlayer = new MusicPlayer(music);
+		musicPlayer.playMusic();
 		classPathXMLContext.close();
 	}
 }
