@@ -12,9 +12,18 @@
         class="ClassicalMusic">        
     </bean>
     
+    <bean id="RockMusicBean"
+        class="RockMusic">        
+    </bean>
+    
     <bean id="musicPlayer"
     	class="MusicPlayer">
-    		<property name="music" ref="musicBean"/>
+    		<property name="music"> 
+    		<list>
+    		<ref bean="musicBean"/>
+    		<ref bean="RockMusicBean"/>
+    		</list>
+    		</property>
     		<property name="name" value="${musicPlayer.name}"/>
     		<property name="volume" value="${musicPlayer.volume}" />
     </bean>

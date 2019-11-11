@@ -1,13 +1,16 @@
-import lombok.Getter;
+import java.util.ArrayList;
+import java.util.List;
+
+//import lombok.Getter;
 
 
 public class MusicPlayer {
-	private IMusic music;
+	private List<IMusic> music = new ArrayList<IMusic>();
 	private int volume;
 	private String name;
 	
 	
-	public MusicPlayer(IMusic music) {
+	public MusicPlayer(List<IMusic> music ) {
 		this.music = music;
 	}
 	public MusicPlayer() {}
@@ -19,7 +22,7 @@ public class MusicPlayer {
 		this.name = name;
 	}
 
-	public void setMusic(IMusic music) {
+	public void setMusic(List<IMusic> music ) {
 		this.music = music;
 	}
 	
@@ -31,7 +34,8 @@ public class MusicPlayer {
 	}
 	
 	public void playMusic(){
-	System.out.println("Playing: " + music.getSong());	
+	for (int i = 0; i<music.size(); i++)
+	System.out.println("Playing: " + music.get(i).getSong());	
 	}
 
 
